@@ -27,3 +27,6 @@ These are just some of the features that could be included in a Death Note app. 
 
 # Live & Demo :
  https://death_note.surge.sh/
+ 
+![image](https://user-images.githubusercontent.com/121975087/219883659-628a8746-46d3-442a-a70d-60d7e808c7fb.png)
+
