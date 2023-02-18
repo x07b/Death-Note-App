@@ -24,3 +24,6 @@ Sharing - Allow users to share their Death Note entries or other app content on 
 Dark mode - Provide a dark mode option for better viewing experience in low light situations.
 
 These are just some of the features that could be included in a Death Note app. The exact features and structure will depend on the target audience, user needs, and the specific goals of the app.
+
+# Live & Demo :
+ https://death_note.surge.sh/
