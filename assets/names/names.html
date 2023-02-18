@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="names.css">
+    <link rel="stylesheet" href="../../golbal.css">
+    <title>Human Name</title>
+    <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-database.js"></script>
+    <script src="../db/main.js"></script>
+</head> 
+<!-- https://deathnote-crocode-default-rtdb.firebaseio.com/ -->
+<!--  -->
+<body onload="document.getElementById('music').play()">
+     <audio id="music" loop type="audio/mp3" src="../../music.mp3"></audio>
+    <div class="container">
+        <img src="../../images/pdfcoffee.com_death-note-5-pdf-free-01-mini.png" alt="00-Book-DeathNote">
+    </div>
+    <div class="footer_links">
+        <a href="../table/table.html">Show Names</a>
+        <a href="../../index.html">Home</a>
+        <a href="./../rules/rules.html">Show Rules</a>
+        <!-- <div class="under_footer_links">
+            <button  id="myButton">
+             <img src="../../images/no-audio.png" alt="no-sound">
+            </button>
+            <audio id="myAudio" src="../../music.mp3" loop autoplay></audio>
+        </div> -->
+    </div>
+    <div class="message_alerts">
+        <div class="error-message" id="numbers-error">
+            Input should contain only characters.
+          </div>
+          <br />
+          <div class="error-message" id="empty-error">
+            Input should not be empty.
+          </div>
+    </div>
+    <div class="write_container" id="hiddenArea">
+        <form id="myForm" action="/submit-form" method="post">
+            <div> 
+            human Name: 
+            <br /><input type="text" id="inputText" placeholder="Write The Full Name..." name="username" required>
+            </div>
+            <div>
+            Death Details:
+            <br />
+            <textarea name="detail" id="textArea" placeholder="Write The Death Details ...."></textarea>
+            </div>
+            <div>
+            <input type="submit" id="submitButton" value="Execute.">
+            </div>
+        </form>
+    </div>
+    <script>
+      // Get a reference to the Firebase database
+var database = firebase.database();
+
+
+      // Save the form data to Firebase
+
+    document.getElementById("submitButton").addEventListener("click", function() {
+
+
+      var inputText = document.getElementById("inputText").value;
+      var textarea = document.getElementById("textArea").value;
+
+      // Store the form data in Firebase
+      storeDataInFirebase(inputText, textarea);
+    });
+
+    function storeDataInFirebase(inputText, textarea) {
+      firebase
+        .database()
+        .ref("formData")
+        .push({
+          inputText: inputText,
+          textarea: textarea
+        });
+    }
+
+    </script>
+
+    <div class="show_message" id="displayArea">
+        <h1>hello owner ur operation starting </h1>
+        <p>The human whose name is written in this note shall die.</p>
+        <div id="timerDisplay" class="timedeath">T 00:00 T</div>
+        <form id="myFormTwo">
+            <input type="submit"  id="write_more" value="Write More Humain Names."></input>
+        </form>
+    </div>
+    <script>
+
+         // Get the input and error message elements
+        var input = document.getElementById("inputText");
+        var numbersError = document.getElementById("numbers-error");
+        var emptyError = document.getElementById("empty-error");
+      
+        // Add an event listener to the input
+        input.addEventListener("input", function() {
+          // Check if the input contains numbers
+          if (/\d/.test(input.value)) {
+            numbersError.style.display = "block";
+          } else {
+            numbersError.style.display = "none";
+          }
+      
+          // Check if the input is empty
+          if (input.value === "") {
+            emptyError.style.display = "block";
+          } else {
+            emptyError.style.display = "none";
+          }
+        });
+
+        // // Get the button and audio elements
+        //  var btn = document.getElementById("myButton");
+        //  var audio = document.getElementById("myAudio");
+       
+        //  // Add a click event listener to the button
+        //  btn.addEventListener("click", function() {
+        //    // If the audio is muted, unmute it
+        //    if (audio.muted) {
+        //      audio.muted = false;
+        //    }
+        //    // If the audio is not muted, mute it
+        //    else {
+        //      audio.muted = true;
+        //    }
+        //  });
+       </script>
+  
+    <script src="./names.js"></script>
+</body>
+</html>

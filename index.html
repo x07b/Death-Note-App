@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Custom Style -->
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="golbal.css">
+  <link rel="shortcut icon" href="./images/death-note-d.ico" type="image/x-icon">
+  <title>DEATH NOTE</title>
+</head>
+<body onload="loaded()">
+  <audio id="music" loop type="audio/mp3" src="music_01.mp3"></audio>
+  <div class="container">
+    <img src="./images/pdfcoffee.com_death-note-5-pdf-free-01-mini.png" alt="00-Book-DeathNote">
+  
+  <div class="footer_links">
+    <a href="./assets/names/names.html">Write Name</a>
+    <a href="./assets/rules/rules.html">Show Rules</a>
+    <!-- <div class="under_footer_links">
+    <button  id="myButton">
+     <img src="./images/no-audio.png" alt="no-sound">
+    </button>
+    <audio id="myAudio" src="music_01.mp3" loop autoplay></audio>
+  </div> -->
+  </div>
+
+
+  <!-- <script>
+ // Get the button and audio elements
+  var btn = document.getElementById("myButton");
+  var audio = document.getElementById("myAudio");
+
+  // Add a click event listener to the button
+  btn.addEventListener("click", function() {
+    // If the audio is muted, unmute it
+    if (audio.muted) {
+      audio.muted = false;
+    }
+    // If the audio is not muted, mute it
+    else {
+      audio.muted = true;
+    }
+  });
+</script> -->
+
+<script>
+  function loaded(){
+    document.getElementById('music').play();
+   
+    // window.alert("u are sure for using this note ?, check the rules before !!");
+
+  };
+
+</script>
+</div>
+</body>
+</html>

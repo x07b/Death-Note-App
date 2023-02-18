@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="table.css">
+    <link rel="stylesheet" href="../../golbal.css">
+    <title>Human Name</title>
+    <script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-database.js"></script>
+</head>
+<body>
+    <div class="container">
+        <img src="../../images/pdfcoffee.com_death-note-5-pdf-free-01-mini.png" alt="00-Book-DeathNote">
+    </div>
+    <div class="footer_links">
+        <a href="../names/names.html">Write Names</a>
+        <a href="../../index.html">Home</a>
+        <a href="../rules/rules.html">Show Rules</a>
+        <div class="under_footer_links">
+            <button  id="myButton">
+             <img src="../../images/no-audio.png" alt="no-sound">
+            </button>
+            <audio id="myAudio" src="../../music.mp3" loop autoplay></audio>
+        </div>
+    </div>
+    <div class="table-div">
+      <table id="data-table" >
+        <thead>
+          <tr border="1">
+            <th style="padding: 25px;">Humain Name</th>
+            <th>Death Details</th>
+          </tr>
+        </thead>
+        <tbody id="table-body"></tbody>
+      </table> 
+    </div>  
+    <script>
+       // Initialize Firebase
+       var firebaseConfig = {
+        apiKey: "AIzaSyD2V3iNlDvwWPdvVUpTd-u7Wsd8l5m_uiQ",
+        authDomain: "note-400a0.firebaseapp.com",
+        databaseURL: "https://note-400a0-default-rtdb.firebaseio.com",
+        projectId: "note-400a0",
+        storageBucket: "note-400a0.appspot.com",
+        messagingSenderId: "338505077461",
+        appId: "1:338505077461:web:bcb2d4d95d1bc590cac85c",
+        measurementId: "G-HH7DLFF35N"
+      };
+      firebase.initializeApp(firebaseConfig);
+
+      // Get a reference to the database
+      var database = firebase.database();
+
+      // Get the data from the database and display it in the table
+      database.ref("/formData").on("value", function(snapshot) {
+        var value = snapshot.val();
+        var data = snapshot.toString(value);
+        var table = document.getElementById("data-table");
+        for (var key in data) {
+          var row = table.insertRow();
+          var cell1 = row.insertCell(0);
+          var cell2 = row.insertCell(1);
+          cell1.innerHTML = key;
+          cell2.innerHTML = data[key];
+        }
+      });
+        // Get the button and audio elements
+         var btn = document.getElementById("myButton");
+         var audio = document.getElementById("myAudio");
+       
+         // Add a click event listener to the button
+         btn.addEventListener("click", function() {
+           // If the audio is muted, unmute it
+           if (audio.muted) {
+             audio.muted = false;
+           }
+           // If the audio is not muted, mute it
+           else {
+             audio.muted = true;
+           }
+         });
+       </script>
+
+    <script src="./table.js"></script>
+</body>
+</html>

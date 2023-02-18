@@ -1,0 +1,32 @@
+
+.rules_list_menu{
+    padding: 8rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-grow: 1;
+    flex-basis: 0;
+    flex-wrap: wrap;
+    color: white;
+    font-size: 30px;
+    font-family: 'death';
+}
+
+.rules_list_menu ol li{
+    padding: 15px;
+}
+
+
+.footer_links{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+  
+  .footer_links > a{
+    font-family: 'death';
+    font-size: 30px;
+    padding: 80px;
+    text-decoration: underline;
+    color: white;
+  }
